@@ -1,0 +1,12 @@
+{% extends 'core/index.html' %}
+{% block content %}
+
+    <div>
+        {% for character in characters %}
+            <div>
+                {{character.name}}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

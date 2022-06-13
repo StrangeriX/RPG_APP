@@ -1,0 +1,28 @@
+{% extends 'core/index.html' %}
+{% block content %}
+
+    <div>
+        <div><h3>Name: </h3>{{character.name}}</div>
+        <div><h4>Race: </h4>{{character.race}}</div>
+        <div><h4>Level: </h4>{{character.level}}</div>
+        <div>
+            <h2>Attributes: </h2>
+            <div>Attributes points: {{character.attribute_points}}</div>
+            {% if character.attribute_points > 0 %}
+            <div><h4>Strenght: </h4>{{character.attributes.strenght}}
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="submit" name="add_point" value="add">
+            </form>
+            </div>
+            <div><h4>Dextirity: </h4>{{character.attributes.dextirity}}</div>
+            <div><h4>inteligance: </h4>{{character.attributes.inteligance}}</div>
+            {% else %}
+            <div><h4>Strenght: </h4>{{character.attributes.strenght}}</div>
+            <div><h4>Dextirity: </h4>{{character.attributes.dextirity}}</div>
+            <div><h4>inteligance: </h4>{{character.attributes.inteligance}}</div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}
